@@ -1,6 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
+import { featureCards } from "../constants";
 
 const MessageSection = () => {
   useGSAP(() => {
@@ -16,7 +17,7 @@ const MessageSection = () => {
     });
 
     gsap.to(firstMsgSplit.words, {
-      color: "#faeade",
+      color: "#ffffff",
       ease: "power1.in",
       stagger: 1,
       scrollTrigger: {
@@ -27,7 +28,7 @@ const MessageSection = () => {
       },
     });
     gsap.to(secMsgSplit.words, {
-      color: "#faeade",
+      color: "#ffffff",
       ease: "power1.in",
       stagger: 1,
       scrollTrigger: {
@@ -71,7 +72,7 @@ const MessageSection = () => {
       <div className="container mx-auto flex-center py-28 relative">
         <div className="w-full h-full">
           <div className="msg-wrapper">
-            <h1 className="first-message">Stir up your fearless past and</h1>
+            <h1 className="first-message">Transform Business Communication</h1>
 
             <div
               style={{
@@ -79,24 +80,53 @@ const MessageSection = () => {
               }}
               className="msg-text-scroll"
             >
-              <div className="bg-light-brown md:pb-5 pb-3 px-5">
-                <h2 className="text-red-brown">Fuel Up</h2>
+              <div
+                className="md:pb-5 pb-3 px-5"
+                style={{ background: "linear-gradient(135deg, #2563EB, #4F46E5)" }}
+              >
+                <h2 style={{ color: "#ffffff" }}>with OnDial</h2>
               </div>
             </div>
 
             <h1 className="second-message">
-              your future with every gulp of Perfect Protein
+              AI Voice Agents for every business
             </h1>
           </div>
 
-          <div className="flex-center md:mt-20 mt-10">
-            <div className="max-w-md px-10 flex-center overflow-hidden">
-              <p>
-                Rev up your rebel spirit and feed the adventure of life with
-                SPYLT, where you’re one chug away from epic nostalgia and
-                fearless fun.
+          {/* Sub-label */}
+          <div className="flex-center md:mt-10 mt-6">
+            <div className="max-w-xl px-6 text-center">
+              <p
+                className="text-sm font-medium tracking-widest uppercase"
+                style={{ color: "#06B6D4", letterSpacing: "0.15em" }}
+              >
+                Everything You Need
               </p>
             </div>
+          </div>
+
+          {/* Feature Cards Grid */}
+          <div className="mt-12 px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+            {featureCards.map((card, i) => (
+              <div key={i} className="feature-card group">
+                <div className="feature-card-icon">
+                  <span>{card.icon}</span>
+                </div>
+                <h3
+                  className="font-bold text-lg text-white mt-2"
+                  style={{ fontFamily: "Antonio, sans-serif" }}
+                >
+                  {card.title}
+                </h3>
+                <p
+                  className="font-paragraph text-sm text-[#94A3B8] leading-relaxed"
+                  style={{ fontSize: "0.875rem" }}
+                >
+                  {card.body}
+                </p>
+                <span className="feature-tag">{card.tag}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
